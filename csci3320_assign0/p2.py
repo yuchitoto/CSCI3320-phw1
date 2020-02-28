@@ -1,6 +1,7 @@
 import pandas
 from scipy.stats import norm
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
 from sklearn import metrics
 
 raw_data = pandas.read_csv("input_2.csv")
@@ -16,6 +17,8 @@ for i in range(1,4):
     print("var = ",var)
     print("max = ",max)
     print("min = ",min)
+    # raw_data[raw_data['class'] == i]['feature_value'].plot.hist()
+    # plt.show()
 
 k = 2400
 post = [0,0,0]
