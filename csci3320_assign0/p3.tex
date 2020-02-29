@@ -1,0 +1,73 @@
+\documentclass{subfiles}
+
+\begin{document}
+  \section{Problem 3}
+  \subsection{Q1}
+  The priors:
+  \begin{equation*}
+    \begin{split}
+      C_1 &= 0.32917\\
+      C_2 &= 0.33333\\
+      C_3 &= 0.33750
+    \end{split}
+  \end{equation*}\cite{2020SciPy-NMeth}
+  \subsection{Q2}
+  Parameters of likelihood:
+  \begin{tabular}{|r|r|r|r|}
+    \hline
+    Class & \(m_i\) & \(\sigma^2_i\)\\
+    \hline
+    1 & [0.10000, 1.02467] & [0.09011, 0.24960]\\
+    \hline
+    2 & [0.51500, 4.96953] & [0.25009, 6.97789]\\
+    \hline
+    3 & [0.77161, 9.88860] & [0.17645, 20.64441]\\
+    \hline
+  \end{tabular}\cite{2020SciPy-NMeth}
+  \subsection{Q3}
+  Discriminant function:
+  \begin{equation}
+    \begin{split}
+      P(x_1,x_2|C_i) &= \frac{P(x_1,x_2,C_i)}{P(C_i)}\\
+      &= \frac{P(x_1,x_2,C_i)}{P(x_1,C_i)} \frac{P(x_1,C_i)}{P(C_i)}\\
+      &= P(x_2|x_1,C_i) P(x_1|C_i) \label{eq:p:2dim}
+    \end{split}
+  \end{equation}
+  \begin{equation}
+    \begin{split}
+      g_i(\vec{x}) &= log(p(\vec{x}|C_i)) + log(P(C_i))\\
+      g_i(\vec{x}) &= g_i(x_1, x_2)\\
+      g_i(x_1, x_2) &= log(p(x_1, x_2|C_i)) + log(P(C_i))\\
+      &= log(p(x_2|x_1, C_i)) + log(p(x_1|C_i)) + log(C_i) \label{eq:g:3}
+    \end{split}
+  \end{equation}
+  This equation \ref{eq:g:3} is used as although this is a multivariate classification, but it is not a multivariate normal distribution problem in \(p(\vec{x}|C_i)\), nor multivariate bernoulli, but the combination of Bernoulli distribution for \(x_1\), and Gaussian distribution for \(x_2\). Therefore, upon cracking the likelihood \ref{eq:p:2dim}, gives this \ref{eq:g:3}.
+
+  Using discriminant function \ref{eq:g:3},
+  \begin{tabular}{|r|r|r|r|}
+    \hline
+    & & Predicted & \\
+    \hline
+    & 206 & 7 & 0\\
+    \hline
+    Actual & 15 & 144 & 27\\
+    \hline
+    & 5 & 51 & 145\\
+    \hline
+  \end{tabular}\cite{scikit-learn}
+  \subsection{Q4}
+  Metrics using discriminant function \ref{eq:g:3},\\
+  Accuracy: 0.82500\cite{scikit-learn}\\
+  \begin{tabular}{|r|r|r|r|}
+    \hline
+    Class & Precision & Recall & F1-score\\
+    \hline
+    1 & 0.91150 & 0.96714 & 0.93850\\
+    \hline
+    2 & 0.71287 & 0.77419 & 0.74227\\
+    \hline
+    3 & 0.84302 & 0.72139 & 0.77748\\
+    \hline
+  \end{tabular}\cite{scikit-learn}\\
+  Assuming average F1 score is the macro average, macro average of F1 score computed by scikit-learn = 0.82500\cite{scikit-learn}
+\end{document}

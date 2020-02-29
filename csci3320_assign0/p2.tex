@@ -1,0 +1,55 @@
+\documentclass{subfiles}
+
+\begin{document}
+  \section{Problem 2}
+  \subsection{Q1}
+  The priors:
+  \begin{equation*}
+    \begin{split}
+      C_1 &= 0.34208\\
+      C_2 &= 0.32792\\
+      C_3 &= 0.33000
+    \end{split}
+  \end{equation*}\cite{2020SciPy-NMeth}
+  \subsection{Q2}
+  Parameters of likelihood:
+  \begin{tabular}{|r|r|r|}
+    \hline
+    Class & \(m_i\) & \(\sigma_i\)\\
+    \hline
+    1 & -0.02506 & 1.06179\\
+    \hline
+    2 & 3.04947 & 3.93068\\
+    \hline
+    3 & -2.85995 & 9.71871\\
+    \hline
+  \end{tabular}\cite{2020SciPy-NMeth}
+  \subsection{Q3}
+  Confusion Matrix:
+  \begin{tabular}{|r|r|r|r|}
+    \hline
+    & & Predicted & \\
+    \hline
+    & 194 & 11 & 15\\
+    \hline
+    Actual & 42 & 162 & 2\\
+    \hline
+    & 37 & 13 & 124\\
+    \hline
+  \end{tabular}\cite{scikit-learn}
+  \subsection{Q4}
+  Metrics:\\
+  Accuracy: 0.800000\cite{scikit-learn}\\
+  \begin{tabular}{|r|r|r|r|}
+    \hline
+    Class & Precision & Recall & F1-score\\
+    \hline
+    1 & 0.71062 & 0.88182 & 0.78702\\
+    \hline
+    2 & 0.87097 & 0.78641 & 0.82653\\
+    \hline
+    3 & 0.87943 & 0.71264 & 0.78730\\
+    \hline
+  \end{tabular}\cite{scikit-learn}\\
+  Assuming average F1 score is the macro average, macro average of F1 score computed by scikit-learn = 0.80028\cite{scikit-learn}
+\end{document}

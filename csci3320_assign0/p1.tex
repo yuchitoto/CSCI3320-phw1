@@ -1,0 +1,52 @@
+\documentclass{subfiles}
+
+\begin{document}
+  \section{Problem 1}
+  \subsection{Q1}
+  The priors:
+  \begin{equation*}
+    \begin{split}
+      C_1 &= 0.34125\\
+      C_2 &= 0.33833\\
+      C_3 &= 0.32042
+    \end{split}
+  \end{equation*}
+  \subsection{Q2}
+  The estimators:
+  \begin{equation*}
+    \begin{split}
+      p_1 &= 0.34432\\
+      p_2 &= 0.61207\\
+      p_3 &= 0.40182
+    \end{split}
+  \end{equation*}
+  \subsection{Q3}
+  Confusion Matrix using scikit-learn:
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+     & & predicted & \\
+    \hline
+    & 135 & 70 & 0\\
+    \hline
+    actual & 70 & 108 & 0\\
+    \hline
+    & 148 & 69 & 0\\
+    \hline
+  \end{tabular}\cite{scikit-learn}
+  \subsection{Q4}
+  Metrics:\\
+  Accuracy: 0.40500\\
+  \begin{tabular}{|r|r|r|r|}
+    \hline
+    Class & Precision & Recall & F1-score\\
+    \hline
+    1 & 0.38244 & 0.65854 & 0.48387\\
+    \hline
+    2 & 0.43725 & 0.60674 & 0.50824\\
+    \hline
+    3 & NaN 0.00000 & NaN\\
+    \hline
+  \end{tabular}\cite{2020SciPy-NMeth}\\
+  NaN indicates not a number due to zero division in this case\\
+  Assuming average F1 score is the macro average, macro average of F1 score computed by scikit-learn = 0.33070\cite{scikit-learn}
+\end{document}

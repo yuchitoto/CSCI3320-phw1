@@ -50,7 +50,7 @@ print(g1)
 print(g2)
 print(g3)
 
-#conf_mat = numpy.zeros((3,3),dtype=int)
+conf_mat = numpy.zeros((3,3),dtype=int)
 
 precision = [0,0,0]
 accuracy = 0
@@ -74,15 +74,15 @@ for i in range(k,3000):
         cl = 1
     if g3>g1 and g3>g2:
         cl = 2
-    #conf_mat[raw_data.iloc[i,1]-1][cl] += 1
+    conf_mat[raw_data.iloc[i,1]-1][cl] += 1
     label.append(cl+1)
 
 print("actual row, predict column")
 #print(conf_mat)
 print(metrics.confusion_matrix(raw_data.iloc[k:,1].to_numpy(),label,labels=[1,2,3]))
 print()
-print(metrics.classification_report(raw_data.iloc[k:,1],label,labels=[1,2,3],digits=5))
-"""print("actual row, predict column")
+print(metrics.classification_report(raw_data.iloc[k:,1],label,labels=[1,2,3],digits=5,zero_division=1))
+print("actual row, predict column")
 print(numpy.array(conf_mat))
 tpfp = numpy.array(conf_mat).sum(axis=0)
 tpfn = numpy.array(conf_mat).sum(axis=1)
@@ -99,4 +99,4 @@ accuracy /= 3000-2400
 print("accuracy = ",accuracy)
 print("precision = ",precision)
 print("recall = ",recall)
-print("f1 = ",f1)"""
+print("f1 = ",f1)
